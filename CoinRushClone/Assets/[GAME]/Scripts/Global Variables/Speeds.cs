@@ -5,7 +5,10 @@ using UnityEngine;
 public class Speeds 
 {
 
-    
 
-   
+
+    public static float ObstacleRotateSpeedRelativeToYAxis = 30f;
+
+
+
 }

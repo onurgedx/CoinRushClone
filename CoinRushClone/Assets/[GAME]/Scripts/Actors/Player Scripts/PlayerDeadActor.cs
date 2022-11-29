@@ -1,18 +1,57 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerDeadActor : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] PlayerCollisionChecker _playerCollisionChecker;
+
+
+    [SerializeField] private Rigidbody _coinRigidbody;
+     
+    public Action OnDead;
+
+
+    private void OnEnable()
     {
-        
+        _playerCollisionChecker.OnCollideObstacle += Dead;
+        OnDead += TurnOffKinematicForFall;
+
+
+         
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        _playerCollisionChecker.OnCollideObstacle -= Dead;
+
+        OnDead -= TurnOffKinematicForFall;
+
+
     }
+
+
+
+
+    private void Dead()
+    {
+
+        OnDead?.Invoke();
+        GameManager.Instance.OnLevelFinishedAsFail?.Invoke();
+
+    }
+    
+
+    private void TurnOffKinematicForFall()
+    {
+        _coinRigidbody.isKinematic = false;
+
+
+    }
+
+
+
+    
 }

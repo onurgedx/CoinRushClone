@@ -6,20 +6,33 @@ public class PlayerRotateController : MonoBehaviour
 {
 
     [SerializeField] private Transform _targetTransformToLook;
+
+    [SerializeField] private PlayerDeadActor _playerDeadActor;
+
+
     private void OnEnable()
     {
-
-        InputController.OnTouch += SetRotatePosition;
+        _playerDeadActor.OnDead += TurnOffRotateControl;
+        TurnOnRotateControl();
 
     }
 
     private void OnDisable()
     {
 
-        InputController.OnTouch -= SetRotatePosition;
+        _playerDeadActor.OnDead -= TurnOffRotateControl;
+        TurnOffRotateControl();
 
     }
 
+    private void TurnOnRotateControl()
+    {InputController.OnTouch += SetRotatePosition;
+
+    }
+    private void TurnOffRotateControl()
+    {InputController.OnTouch -= SetRotatePosition;
+
+    }
 
     private void SetRotatePosition(float x)
     {
