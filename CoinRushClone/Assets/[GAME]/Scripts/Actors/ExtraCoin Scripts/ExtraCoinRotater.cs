@@ -27,7 +27,7 @@ public class ExtraCoinRotater : MonoBehaviour
         Vector3 destinationPosition = leadTransform.position;
         Vector3 directionForLooking = destinationPosition - _transform.position;
         Quaternion destinationQuaternion = Quaternion.LookRotation(directionForLooking);
-        _transform.rotation  = Quaternion.Lerp(_transform.rotation,destinationQuaternion, Time.deltaTime*4);
+        _transform.rotation =  Quaternion.Lerp(_transform.rotation,destinationQuaternion, Time.deltaTime*4);
 
     }
 }

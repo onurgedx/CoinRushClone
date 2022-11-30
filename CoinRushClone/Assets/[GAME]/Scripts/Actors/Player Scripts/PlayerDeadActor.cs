@@ -39,7 +39,7 @@ public class PlayerDeadActor : MonoBehaviour
     {
 
         OnDead?.Invoke();
-        GameManager.Instance.OnLevelFinishedAsFail?.Invoke();
+        LevelManager.Instance.OnLevelFinishedAsFail?.Invoke();
 
     }
     

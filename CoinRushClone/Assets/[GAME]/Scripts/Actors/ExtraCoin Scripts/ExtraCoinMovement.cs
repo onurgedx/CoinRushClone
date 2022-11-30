@@ -27,7 +27,7 @@ public class ExtraCoinMovement : MonoBehaviour
 
         Vector3 destinationPosition = leadTransform.position;
 
-        _transform.position = Vector3.Lerp(_transform.position, destinationPosition, Time.deltaTime*10);
+        _transform.position = Vector3.Lerp(_transform.position, destinationPosition,Time.deltaTime*10);
 
     }
 }

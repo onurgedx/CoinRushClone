@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3667536819361464306}
   - component: {fileID: 8129470492848128221}
   - component: {fileID: 4300894096925579487}
+  - component: {fileID: 6725612175106768825}
   m_Layer: 0
   m_Name: ObstaclePlus
   m_TagString: Untagged
@@ -109,3 +110,15 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1463048430781114374, guid: 32519eda1fc275640b4493cb1c9d6b00, type: 3}
+--- !u!114 &6725612175106768825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3018899657739410983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5712becc72465b444ab2819f983e79e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

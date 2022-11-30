@@ -6,8 +6,8 @@ using UnityEngine;
 public class GameManager : MonoSingleton<GameManager>
 {
 
-    public Action OnLevelFinishedAsFail;
-    public Action OnLevelStarted;
+    
+    public Action OnGameStarted;
 
 
     

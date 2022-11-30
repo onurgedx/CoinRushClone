@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7460009356555302755}
   - component: {fileID: 3843374617371495729}
   - component: {fileID: 2820289575869491039}
+  - component: {fileID: 758918937565420111}
   m_Layer: 0
   m_Name: Axe
   m_TagString: Untagged
@@ -110,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6885198c2018846acf45813767a9cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DestinationXAngle: -17
   AxeArriveDuration: 0.3
   _obstacleAxeTriggerCheker: {fileID: 966255397765214288}
 --- !u!54 &3843374617371495729
@@ -142,6 +144,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8287839383430266118, guid: 0cb236f54cf1978478825f5636384446, type: 3}
+--- !u!114 &758918937565420111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268297195735560541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5712becc72465b444ab2819f983e79e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1114719184227933429
 GameObject:
   m_ObjectHideFlags: 0

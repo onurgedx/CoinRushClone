@@ -48,14 +48,14 @@ public class CameraController : MonoBehaviour
     {
         CameraMovementEvent += ControlCameraMovement;
         // CameraMovementEvent += ControlCameraRotate;
-        GameManager.Instance.OnLevelFinishedAsFail += ShakeCameraOnDead;
+        LevelManager.Instance.OnLevelFinishedAsFail += ShakeCameraOnDead;
 
     }
 
     private void OnDisable()
     {
         CameraMovementEvent -= ControlCameraMovement;
-        GameManager.Instance.OnLevelFinishedAsFail -= ShakeCameraOnDead;
+       LevelManager.Instance.OnLevelFinishedAsFail -= ShakeCameraOnDead;
         //CameraMovementEvent -= ControlCameraRotate;
         
     }
