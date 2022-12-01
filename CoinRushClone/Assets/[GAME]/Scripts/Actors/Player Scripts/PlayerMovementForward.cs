@@ -9,7 +9,7 @@ public class PlayerMovementForward : MonoBehaviour
 
     [SerializeField] private Transform _coinTransform;
     [SerializeField] private PlayerDeadActor _playerDeadActor;
-
+    [SerializeField] private PlayerLevelArragements _playerLevelArragements;
 
     public float PlayerSpeed = 10;
 
@@ -18,14 +18,17 @@ public class PlayerMovementForward : MonoBehaviour
 
     private void OnEnable()
     {
-        TurnOnMoveForward();
+        //TurnOnMoveForward();
         _playerDeadActor.OnDead += TurnOffMoveForward;
+        _playerLevelArragements.OnBeAliveSettings += TurnOnMoveForward;
+
     }
 
     private void OnDisable()
     {
+        _playerLevelArragements.OnBeAliveSettings -= TurnOnMoveForward;
         _playerDeadActor.OnDead -= TurnOffMoveForward;
-        TurnOffMoveForward();
+        //TurnOffMoveForward();
     }
     // Update is called once per frame
     void Update()

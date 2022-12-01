@@ -1508,11 +1508,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a47f546fc70ec8428172694e78e4288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &1387411444 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 1387411444, guid: b0346a71c25b75846948f815551878b5, type: 3}
-  m_PrefabInstance: {fileID: 7227213889938355962}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1414459054
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2572,11 +2567,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &2110982227 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 1509220292281388905, guid: b0346a71c25b75846948f815551878b5, type: 3}
-  m_PrefabInstance: {fileID: 7227213889938355962}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2128010571
 GameObject:
   m_ObjectHideFlags: 0
@@ -2809,30 +2799,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 931952499487443040, guid: b0346a71c25b75846948f815551878b5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.436
-      objectReference: {fileID: 0}
-    - target: {fileID: 931952499487443040, guid: b0346a71c25b75846948f815551878b5, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.118
-      objectReference: {fileID: 0}
-    - target: {fileID: 2903715851625496675, guid: b0346a71c25b75846948f815551878b5, type: 3}
-      propertyPath: _meshRenderer
-      value: 
-      objectReference: {fileID: 2110982227}
-    - target: {fileID: 7227213888865347112, guid: b0346a71c25b75846948f815551878b5, type: 3}
-      propertyPath: _coinRigidbody
-      value: 
-      objectReference: {fileID: 1387411444}
-    - target: {fileID: 7227213888865347122, guid: b0346a71c25b75846948f815551878b5, type: 3}
-      propertyPath: PlayerSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7227213888865347126, guid: b0346a71c25b75846948f815551878b5, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7227213890276057970, guid: b0346a71c25b75846948f815551878b5, type: 3}
       propertyPath: m_Name
       value: PlayerParent

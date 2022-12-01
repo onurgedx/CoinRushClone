@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 1601708288962870374}
   - component: {fileID: 2903715851625496675}
   - component: {fileID: 3267155845312317292}
+  - component: {fileID: 3918011514965728924}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -74,7 +75,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _coinTransform: {fileID: 7227213890065278253}
   _playerDeadActor: {fileID: 7227213888865347112}
-  PlayerSpeed: 1
+  _playerLevelArragements: {fileID: 3918011514965728924}
+  PlayerSpeed: 2
 --- !u!114 &7227213888865347133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,6 +92,7 @@ MonoBehaviour:
   _coinTransform: {fileID: 7227213890065278253}
   _targetToLook: {fileID: 7227213888889031249}
   _playerDeadActor: {fileID: 7227213888865347112}
+  _playerLevelArragements: {fileID: 3918011514965728924}
 --- !u!114 &7227213888865347121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,6 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetTransformToLook: {fileID: 7227213888889031249}
   _playerDeadActor: {fileID: 7227213888865347112}
+  _playerLevelArragements: {fileID: 3918011514965728924}
 --- !u!114 &7227213888865347123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,7 +144,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7227213888865347134}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.15, y: 0.29, z: 0.31}
@@ -207,7 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerCollisionChecker: {fileID: 7227213888865347123}
-  _coinRigidbody: {fileID: 0}
+  _coinRigidbody: {fileID: 1387411444}
 --- !u!114 &7227213888865347115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerNumbersThatPlayerStayOn: 0800000009000000
   _raycastOriginTransform: {fileID: 931952499487443040}
-  _meshRenderer: {fileID: 0}
+  _meshRenderer: {fileID: 1509220292281388905}
 --- !u!114 &3267155845312317292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,6 +278,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coinModel: {fileID: 340865100458079238}
+--- !u!114 &3918011514965728924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7227213888865347134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a16effe835c34444b4622b2954a75b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coinRigidbody: {fileID: 1387411444}
 --- !u!1 &7227213888889031248
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,6 +700,11 @@ GameObject:
 --- !u!4 &340865100458079238 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6986991487832608938, guid: bdb53cbfc14ab5c4d83aa43d1a118bb9, type: 3}
+  m_PrefabInstance: {fileID: 7227213890412700844}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1509220292281388905 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8123908108934130629, guid: bdb53cbfc14ab5c4d83aa43d1a118bb9, type: 3}
   m_PrefabInstance: {fileID: 7227213890412700844}
   m_PrefabAsset: {fileID: 0}
 --- !u!54 &1387411444

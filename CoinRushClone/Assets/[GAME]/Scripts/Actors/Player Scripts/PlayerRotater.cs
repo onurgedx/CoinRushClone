@@ -9,17 +9,18 @@ public class PlayerRotater : MonoBehaviour
     [SerializeField] private Transform _coinTransform;
     [SerializeField] private Transform _targetToLook;
     [SerializeField] private PlayerDeadActor _playerDeadActor;
-
+    [SerializeField] private PlayerLevelArragements _playerLevelArragements;
     private Action RotateEvent; 
 
     private void OnEnable()
     {
-        TurnOnRotateAbility();
+        _playerLevelArragements.OnBeAliveSettings += TurnOnRotateAbility;
         _playerDeadActor.OnDead += TurnOffRotateAbility;
         
     }
     private void OnDisable()
     {
+        _playerLevelArragements.OnBeAliveSettings -= TurnOnRotateAbility;
         _playerDeadActor.OnDead -= TurnOffRotateAbility;
         TurnOffRotateAbility();
     }

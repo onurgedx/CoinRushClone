@@ -52,6 +52,12 @@ public class PlayerDeadActor : MonoBehaviour
     }
 
 
+    private void TurnOnKinematicForAlive()
+    {
+        _coinRigidbody.isKinematic = true;
+    }
+
+
 
     
 }

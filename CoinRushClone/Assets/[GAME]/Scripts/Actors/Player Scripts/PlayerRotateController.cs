@@ -8,18 +8,19 @@ public class PlayerRotateController : MonoBehaviour
     [SerializeField] private Transform _targetTransformToLook;
 
     [SerializeField] private PlayerDeadActor _playerDeadActor;
-
+    [SerializeField] private PlayerLevelArragements _playerLevelArragements;
 
     private void OnEnable()
     {
         _playerDeadActor.OnDead += TurnOffRotateControl;
-        TurnOnRotateControl();
+        _playerLevelArragements.OnBeAliveSettings += TurnOnRotateControl;
+        
 
     }
 
     private void OnDisable()
     {
-
+        _playerLevelArragements.OnBeAliveSettings -= TurnOnRotateControl;
         _playerDeadActor.OnDead -= TurnOffRotateControl;
         TurnOffRotateControl();
 

@@ -58,7 +58,7 @@ public class LevelManager : MonoSingleton<LevelManager>
         if (Input.GetKeyDown(KeyCode.A))
         {
             OnLevelLoad?.Invoke();
-
+            OnLevelStarted?.Invoke();
         }
     }
 
