@@ -1,0 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlusPositioner : MonoBehaviour, IPositionable
+{
+    public PositionableTypeEnum Type => PositionableTypeEnum.Plus;
+
+    public Transform GetTransform()
+    {
+        return transform;
+    }
+
+    public void SetPositionAndRotation(Transform _leftBoundTransform, Transform _rightBoundTransform, int indexOfPositionable, IPositionable positionable)
+    {
+
+        float xPosition = Random.Range(_leftBoundTransform.position.x, _rightBoundTransform.position.x);
+        float yPosition = -1;
+        float zPosition = indexOfPositionable * 3;
+
+        transform.position = new Vector3(xPosition, yPosition, zPosition);
+
+
+    }
+}

@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class PlayerWinActor : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    private void FinishLevelAsWin()
     {
-        
+        LevelManager.Instance.OnLevelFinishedAsSucces();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

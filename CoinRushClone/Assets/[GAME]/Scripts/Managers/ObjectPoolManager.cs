@@ -5,6 +5,15 @@ using UnityEngine;
 
 public class ObjectPoolManager : MonoSingleton<ObjectPoolManager>
 {
+
+
+    [SerializeField] private Transform _parentPool;
+
+    public Transform PoolTransform
+    {
+        get { return _parentPool; }
+    }
+
     [SerializeField] private ExtraCoin _extraCoinPrefabK;
 
     private IExtraCoin _extraCoinPrefab;
@@ -70,7 +79,7 @@ public class ObjectPoolManager : MonoSingleton<ObjectPoolManager>
 
         }
 
-        GameObject extraCoinGo = Instantiate(_extraCoinPrefab.GetGameObject());
+        GameObject extraCoinGo = Instantiate(_extraCoinPrefab.GetGameObject(), _parentPool);
         IExtraCoin extraCoin = extraCoinGo.GetComponent<IExtraCoin>();
         extraCoin.GetGameObject().SetActive(true);
         _extraCoinsList.Add(extraCoin);
@@ -100,7 +109,7 @@ public class ObjectPoolManager : MonoSingleton<ObjectPoolManager>
 
         }
 
-        GameObject go = Instantiate(prefabAndListForPool.Prefab);
+        GameObject go = Instantiate(prefabAndListForPool.Prefab, _parentPool);
 
         go.SetActive(true);
         prefabAndListForPool.PoolList.Add(go);
@@ -125,6 +134,28 @@ public class ObjectPoolManager : MonoSingleton<ObjectPoolManager>
     public GameObject GetPlusObstacleGameObject()
     {
         return GetWantedGameObject(PlusObstaclePool);
+    }
+
+
+
+
+    public GameObject GetRandomLevelActor()
+    {
+        int randomNumber = UnityEngine.Random.Range(0, 3);
+        switch (randomNumber)
+        {
+            case 0:
+                return GetPlusObstacleGameObject();
+            case 1:
+                return GetGainableCoinGameObject();
+            case 2:
+                return GetAxeGameObject();
+
+
+        }
+
+        return GetAxeGameObject();
+
     }
 
 }

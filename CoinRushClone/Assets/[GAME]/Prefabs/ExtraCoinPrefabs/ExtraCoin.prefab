@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7789185011112566066}
   - component: {fileID: 6653170295418977793}
   - component: {fileID: 625273541361472799}
+  - component: {fileID: 6427081756430285522}
   m_Layer: 0
   m_Name: ExtraCoin
   m_TagString: Untagged
@@ -120,6 +121,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5712becc72465b444ab2819f983e79e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6427081756430285522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5617141164819987072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06c94337d620f124dbe3a5f47374210e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coinModel: {fileID: 8512892506727170753}
 --- !u!1 &5746309783305701880
 GameObject:
   m_ObjectHideFlags: 0

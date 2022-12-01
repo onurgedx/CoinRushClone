@@ -28,4 +28,16 @@ public static class TransformExtension
     }
 
 
+    public static void DeactiveChilTransforms(this Transform _transform)
+    {
+
+        for (int i = 0; i < _transform.childCount; i++)
+        {
+            _transform.GetChild(i).gameObject.SetActive(false);
+
+        }
+
+    }
+
+
 }

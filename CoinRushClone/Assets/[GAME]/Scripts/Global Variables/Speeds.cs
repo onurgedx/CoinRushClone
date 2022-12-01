@@ -11,5 +11,7 @@ public class Speeds
 
     public static float ExtraCoinSpeed = 30f;
 
+    public static float CoinSpinSpeed = 720f;
+
 
 }

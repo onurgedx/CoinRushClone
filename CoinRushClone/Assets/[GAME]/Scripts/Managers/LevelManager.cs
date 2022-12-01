@@ -10,6 +10,7 @@ public class LevelManager : MonoSingleton<LevelManager>
     public Action OnLevelFinishedAsFail;
     public Action OnLevelFinishedAsSucces;
     public Action OnLevelStarted;
+    public event Action OnLevelFinished; // i said here event Because of i dont want to call this Action by me distracted
     
 
     private int _levelNumber;
@@ -37,10 +38,29 @@ public class LevelManager : MonoSingleton<LevelManager>
     private void Awake()
     {
         LevelNumber = PlayerPrefs.GetInt(GlobalStrings.LevelNumber);
+        OnLevelFinishedAsFail += LevelFinished;
+        OnLevelFinishedAsSucces += LevelFinished;
     }
 
+    private void Start()
+    {
+        OnLevelStarted?.Invoke();
+    }
+    private void LevelFinished()
+    {
 
+        OnLevelFinished?.Invoke();
 
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            OnLevelLoad?.Invoke();
+
+        }
+    }
 
 
 }
