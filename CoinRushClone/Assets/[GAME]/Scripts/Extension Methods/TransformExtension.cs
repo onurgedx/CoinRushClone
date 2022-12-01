@@ -17,4 +17,15 @@ public static class TransformExtension
    
 
 
+    public static void StayOnFloor(this Transform _transform,float offsetForY,Vector3 pointThatStayOn)
+    {
+
+        Vector3 tempPos = _transform.position;
+        tempPos.y = pointThatStayOn.y + offsetForY;
+        _transform.position = tempPos;
+
+
+    }
+
+
 }
