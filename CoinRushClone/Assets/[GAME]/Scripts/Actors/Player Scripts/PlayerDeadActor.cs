@@ -5,18 +5,36 @@ using UnityEngine;
 
 public class PlayerDeadActor : MonoBehaviour
 {
+    
     [SerializeField] PlayerCollisionChecker _playerCollisionChecker;
 
+    [SerializeField] private PlayerFallController _playerFallController;
 
     [SerializeField] private Rigidbody _coinRigidbody;
      
     public Action OnDead;
 
 
+
+    private void Start()
+    {
+
+        LevelManager.Instance.OnLevelStarted += SetPlayerFallSettings;
+       
+
+        
+    }
+
+    private void SetPlayerFallSettings()
+    {
+        _playerFallController.OnPlayerFalled = Dead;
+
+    }
+
     private void OnEnable()
     {
         _playerCollisionChecker.OnCollideObstacle += Dead;
-        OnDead += TurnOffKinematicForFall;
+        
 
 
          
@@ -27,7 +45,7 @@ public class PlayerDeadActor : MonoBehaviour
     {
         _playerCollisionChecker.OnCollideObstacle -= Dead;
 
-        OnDead -= TurnOffKinematicForFall;
+       
 
 
     }
@@ -44,19 +62,7 @@ public class PlayerDeadActor : MonoBehaviour
     }
     
 
-    private void TurnOffKinematicForFall()
-    {
-        _coinRigidbody.isKinematic = false;
-
-
-    }
-
-
-    private void TurnOnKinematicForAlive()
-    {
-        _coinRigidbody.isKinematic = true;
-    }
-
+    
 
 
     

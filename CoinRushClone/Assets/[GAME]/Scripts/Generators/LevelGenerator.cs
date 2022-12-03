@@ -5,10 +5,19 @@ using UnityEngine;
 public class LevelGenerator : MonoBehaviour
 {
 
+    
+    
+
     [SerializeField] private Transform _leftBoundReference;
+
     [SerializeField] private Transform _rightBoundReference;
 
+    [SerializeField] private Transform _finalUpstairTransform;
 
+
+    public List<GameObject> BlocksOfUpstair;
+
+    private int _blockCountForUpstair;
 
     private void Start()
     {
@@ -19,9 +28,6 @@ public class LevelGenerator : MonoBehaviour
     private void ResetLevel()
     {
         ObjectPoolManager.Instance.PoolTransform.DeactiveChilTransforms();
-
-
-
     }
 
     private void CreateLevel()
@@ -29,7 +35,10 @@ public class LevelGenerator : MonoBehaviour
 
         IPositionable lastPositionable = null;
 
-        for (int i = 3; i < LevelManager.Instance.LevelNumber + 14; i++)
+        int gainableCoinCount = 1;
+
+        int countActor = LevelManager.Instance.LevelNumber + 14;
+        for (int i = 3; i <countActor; i++)
         {
 
 
@@ -41,20 +50,19 @@ public class LevelGenerator : MonoBehaviour
 
 
             levelActorGo.GetComponent<IPositionable>().SetPositionAndRotation(_leftBoundReference, _rightBoundReference, i, lastPositionable);
+
             lastPositionable = levelActorGo.GetComponent<IPositionable>();
 
-
-
-
-
-
-
-
+            if(lastPositionable.Type == PositionableTypeEnum.CoinGainable)
+            {
+                gainableCoinCount++;
+            }
 
 
         }
 
 
+        SetFinalUpstair(gainableCoinCount,countActor);
 
 
 
@@ -62,6 +70,37 @@ public class LevelGenerator : MonoBehaviour
 
 
 
+    private void SetFinalUpstair(int gainbleCointCount,int countOfActors)
+    {
+        for (int i = 0; i < gainbleCointCount; i++)
+        {
+            if (BlocksOfUpstair.Count > i)
+            {
+                
+                BlocksOfUpstair[i].SetActive(true);
+
+            }
+            else
+            {
+                GameObject goNewBlock = Instantiate(BlocksOfUpstair[i - 1],BlocksOfUpstair[i-1].transform.parent);
+
+                Vector3 extents = goNewBlock.GetComponent<Collider>().bounds.extents;
+                goNewBlock.transform.position = BlocksOfUpstair[i - 1].transform.position + new Vector3(0, 2*extents.y, 2*extents.z);
+
+                BlocksOfUpstair.Add(goNewBlock);
+
+
+
+            }
+
+
+        }
+
+
+        _finalUpstairTransform.position = new Vector3(0,-1.25f,(countOfActors+5) * 3);
+
+
+    }
 
 
 }

@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class PlayerExtraCoinController : MonoBehaviour
 {
 
@@ -14,8 +14,14 @@ public class PlayerExtraCoinController : MonoBehaviour
 
 
     [SerializeField] private PlayerExtraCoinRemover _playerCoinRemover;
+    [SerializeField] private LevelGenerator _levelGenerator;
 
     public Action ControlCoinsEvent;
+
+
+    
+
+
 
 
 
@@ -24,13 +30,15 @@ public class PlayerExtraCoinController : MonoBehaviour
         _playerCoinRemover.OnBeforeRemoveAllExtraCoins += LostControlsOfCoins;
         _playerExtraCoinData.OnHasOneCoin += TurnOnControl;
         _playerExtraCoinData.OnHasNoCoin += TurnOffControl;
-        
+        _playerCollisionChecker.OnFinal += MakeExtraCoinsJump;
+
     }
     private void OnDisable()
     {
         _playerCoinRemover.OnBeforeRemoveAllExtraCoins -= LostControlsOfCoins;
         _playerExtraCoinData.OnHasOneCoin -= TurnOnControl;
         _playerExtraCoinData.OnHasNoCoin -= TurnOffControl;
+        _playerCollisionChecker.OnFinal -= MakeExtraCoinsJump;
 
 
     }
@@ -52,7 +60,7 @@ public class PlayerExtraCoinController : MonoBehaviour
     }
 
 
-
+    
 
     public void LostControlsOfCoins()
     {
@@ -63,7 +71,7 @@ public class PlayerExtraCoinController : MonoBehaviour
 
 
         }
-       
+
 
     }
 
@@ -94,6 +102,35 @@ public class PlayerExtraCoinController : MonoBehaviour
         }
 
 
+
+    }
+
+
+    private void MakeExtraCoinsJump()
+    {
+
+
+        TurnOffControl();
+        StartCoroutine(MakeExtraCoinsJumpIEnumerator(_levelGenerator.BlocksOfUpstair));
+
+    }
+
+
+    private IEnumerator MakeExtraCoinsJumpIEnumerator(List<GameObject> blocks)
+    {
+        float arriveDuration = 0.7f;
+        int blockNumber = 0;
+
+        
+        foreach (IExtraCoin extraCoin in _playerExtraCoinData.ExtraCoinList)
+        {
+            yield return new WaitForSeconds(arriveDuration);
+            blockNumber++;
+            extraCoin.GetGameObject().transform.DOJump(blocks[blockNumber].transform.position+Vector3.up, 1, 1,arriveDuration).OnComplete(() => extraCoin.Lose());
+
+
+        }
+        LevelManager.Instance.OnLevelFinishedAsSucces?.Invoke();
 
     }
 

@@ -7,15 +7,15 @@ public class ExtraCoinSpinner : MonoBehaviour
 {
 
     [SerializeField] private Transform _coinModel;
-    
 
+    [SerializeField] private ExtraCoin _extraCoin;
     private Action SpinEvent;
 
     void Start()
     {
 
         LevelManager.Instance.OnLevelFinished += SetSpinOff;
-
+        _extraCoin.OnLose += SetSpinOff;
 
 
     }

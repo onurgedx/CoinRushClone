@@ -16,21 +16,26 @@ public class PlayerExtraCoinRemover : MonoBehaviour
 
     [SerializeField] private PlayerCollisionChecker _playerCollisionChecker;
 
-    
-    
 
 
-    private void OnEnable()
+    private void Start()
     {
-
-        _playerCollisionChecker.OnCollideObstacle += RemoveAllCoins;
+        LevelManager.Instance.OnLevelFinished += RemoveAllCoins;
 
     }
-    private void OnDisable()
-    {
-        _playerCollisionChecker.OnCollideObstacle -= RemoveAllCoins;
 
-    }
+    //private void OnEnable()
+    //{
+
+    //    //_playerCollisionChecker.OnCollideObstacle += RemoveAllCoins;
+
+    //    LevelManager.Instance.OnLevelFinished += RemoveAllCoins;
+    //}
+    //private void OnDisable()
+    //{
+    //    _playerCollisionChecker.OnCollideObstacle -= RemoveAllCoins;
+
+    //}
  
     private void RemoveAllCoins()
     {

@@ -43,7 +43,7 @@ public class AxePositioner : MonoBehaviour, IPositionable
         }
        // xPosition = Random.Range(_leftBoundTransform.position.x, _rightBoundTransform.position.x);
         yPosition = -1;
-        zPosition = indexOfPositionable * 3;
+        zPosition = indexOfPositionable * Distances.DistanceOfLevelActors;
 
         transform.position = new Vector3(xPosition, yPosition, zPosition);
 

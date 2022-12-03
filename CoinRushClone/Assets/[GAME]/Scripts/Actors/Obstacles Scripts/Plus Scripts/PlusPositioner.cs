@@ -16,7 +16,7 @@ public class PlusPositioner : MonoBehaviour, IPositionable
 
         float xPosition = Random.Range(_leftBoundTransform.position.x, _rightBoundTransform.position.x);
         float yPosition = -1;
-        float zPosition = indexOfPositionable * 3;
+        float zPosition = indexOfPositionable * Distances.DistanceOfLevelActors;
 
         transform.position = new Vector3(xPosition, yPosition, zPosition);
 

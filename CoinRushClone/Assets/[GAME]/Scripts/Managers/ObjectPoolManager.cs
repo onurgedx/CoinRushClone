@@ -37,7 +37,7 @@ public class ObjectPoolManager : MonoSingleton<ObjectPoolManager>
 
 
     [SerializeField]
-    private PrefabAndListForPool AxePool, GainableCoinPool,PlusObstaclePool;
+    private PrefabAndListForPool AxePool, GainableCoinPool,PlusObstaclePool,RiserPool;
 
 
 
@@ -136,12 +136,15 @@ public class ObjectPoolManager : MonoSingleton<ObjectPoolManager>
         return GetWantedGameObject(PlusObstaclePool);
     }
 
-
+    public GameObject GetRiserObstacleGameObject()
+    {
+        return GetWantedGameObject(RiserPool);
+    }
 
 
     public GameObject GetRandomLevelActor()
     {
-        int randomNumber = UnityEngine.Random.Range(0, 3);
+        int randomNumber = UnityEngine.Random.Range(0, 4);
         switch (randomNumber)
         {
             case 0:
@@ -150,6 +153,8 @@ public class ObjectPoolManager : MonoSingleton<ObjectPoolManager>
                 return GetGainableCoinGameObject();
             case 2:
                 return GetAxeGameObject();
+            case 3:
+                return GetRiserObstacleGameObject();
 
 
         }

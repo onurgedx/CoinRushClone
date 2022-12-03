@@ -9,7 +9,11 @@ public class PlayerRotateController : MonoBehaviour
 
     [SerializeField] private PlayerDeadActor _playerDeadActor;
     [SerializeField] private PlayerLevelArragements _playerLevelArragements;
-
+    [SerializeField] private PlayerCollisionChecker _playerCollisionChecker;
+    private void Start()
+    {
+        _playerCollisionChecker.OnFinal += TurnOffRotateControl;
+    }
     private void OnEnable()
     {
         _playerDeadActor.OnDead += TurnOffRotateControl;
@@ -31,7 +35,7 @@ public class PlayerRotateController : MonoBehaviour
 
     }
     private void TurnOffRotateControl()
-    {InputController.OnTouch -= SetRotatePosition;
+    {InputController.OnTouch =null;
 
     }
 

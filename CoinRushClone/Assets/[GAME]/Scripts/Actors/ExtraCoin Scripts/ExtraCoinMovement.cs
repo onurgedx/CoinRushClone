@@ -22,12 +22,13 @@ public class ExtraCoinMovement : MonoBehaviour
         
     }
     
+    
     private void Move(Transform leadTransform)
     {
 
         Vector3 destinationPosition = leadTransform.position;
 
-        _transform.position = Vector3.Lerp(_transform.position, destinationPosition,Time.deltaTime*10);
+        _transform.position = Vector3.Lerp(_transform.position, destinationPosition,Time.deltaTime*Speeds.ExtraCoinSpeed);
 
     }
 }

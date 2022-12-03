@@ -26,6 +26,9 @@ GameObject:
   - component: {fileID: 2903715851625496675}
   - component: {fileID: 3267155845312317292}
   - component: {fileID: 3918011514965728924}
+  - component: {fileID: 5151314601082967522}
+  - component: {fileID: 4315558468371139084}
+  - component: {fileID: 7924278133450005702}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -76,6 +79,7 @@ MonoBehaviour:
   _coinTransform: {fileID: 7227213890065278253}
   _playerDeadActor: {fileID: 7227213888865347112}
   _playerLevelArragements: {fileID: 3918011514965728924}
+  _playerCollisionChecker: {fileID: 7227213888865347123}
   PlayerSpeed: 2
 --- !u!114 &7227213888865347133
 MonoBehaviour:
@@ -198,6 +202,7 @@ MonoBehaviour:
   _playerExtraCoinData: {fileID: 1601708288962870374}
   _playerCollisionChecker: {fileID: 7227213888865347123}
   _playerCoinRemover: {fileID: 7227213888865347115}
+  _levelGenerator: {fileID: 0}
 --- !u!114 &7227213888865347112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,6 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerCollisionChecker: {fileID: 7227213888865347123}
+  _playerFallController: {fileID: 7924278133450005702}
   _coinRigidbody: {fileID: 1387411444}
 --- !u!114 &7227213888865347115
 MonoBehaviour:
@@ -291,6 +297,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coinRigidbody: {fileID: 1387411444}
+--- !u!114 &5151314601082967522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7227213888865347134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e374e3ce1f78c545bb281cb31a16bf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coinRigidbody: {fileID: 1387411444}
+  _playerDeadActor: {fileID: 7227213888865347112}
+  _playerMainCoinFinalMovement: {fileID: 4315558468371139084}
+--- !u!114 &4315558468371139084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7227213888865347134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c292912d7dff2c840bd78cd208b710b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerCollisionChecker: {fileID: 7227213888865347123}
+  _jumpDestinationBlock: {fileID: 0}
+  _coinmodelTransform: {fileID: 340865100458079238}
+--- !u!114 &7924278133450005702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7227213888865347134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e718b7d481deac84f84cf4ea20d0e5a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _groundGo: {fileID: 0}
 --- !u!1 &7227213888889031248
 GameObject:
   m_ObjectHideFlags: 0

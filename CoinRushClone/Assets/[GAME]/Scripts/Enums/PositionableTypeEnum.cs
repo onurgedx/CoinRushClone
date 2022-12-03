@@ -6,7 +6,8 @@ public enum PositionableTypeEnum
 {
     Axe,
     Plus,
-    CoinGainable
+    CoinGainable,
+    Riser
 
     
 }

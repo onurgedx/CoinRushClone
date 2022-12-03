@@ -11,7 +11,7 @@ public class LevelManager : MonoSingleton<LevelManager>
     public Action OnLevelFinishedAsSucces;
     public Action OnLevelStarted;
     public event Action OnLevelFinished; // i said here event Because of i dont want to call this Action by me distracted
-    
+
 
     private int _levelNumber;
     public int LevelNumber
@@ -53,14 +53,13 @@ public class LevelManager : MonoSingleton<LevelManager>
 
     }
 
-    private void Update()
+    public void SetNewLevel()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            OnLevelLoad?.Invoke();
-            OnLevelStarted?.Invoke();
-        }
+        OnLevelLoad?.Invoke();
+        OnLevelStarted?.Invoke();
+
     }
+   
 
 
 }

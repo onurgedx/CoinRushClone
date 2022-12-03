@@ -8,7 +8,7 @@ public class PlayerCollisionChecker : MonoBehaviour
 
     public Action OnGainCoin;
     public Action OnCollideObstacle;
-
+    public Action OnFinal;
 
     
     private void OnCollisionEnter(Collision collision)
@@ -25,5 +25,17 @@ public class PlayerCollisionChecker : MonoBehaviour
             OnCollideObstacle?.Invoke();
 
         }
+
+        if (collision.gameObject.CompareTag(GlobalStrings.Final))
+        {
+            OnFinal?.Invoke();
+            collision.collider.isTrigger = true;
+        }
+       
     }
+
+
+
+
+
 }
